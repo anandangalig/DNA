@@ -47,7 +47,7 @@
 
 //====================Calculation: =============================================
   function dna_form_submit($form, &$form_state) {
-      $input = str_split(strtoupper($form_state['values']['input']));
+      $input = $form_state['values']['input'];
       $result = generate_other_half($input);
       $_SESSION['result'] = $result;
       $form_state['redirect'] = 'dna_results';
@@ -55,6 +55,7 @@
 
   function generate_other_half($input) {
     $output = array();
+    $input = str_split(strtoupper($input));
     foreach($input as $letter) {
       if($letter == 'A') {
         array_push($output, 'A-T');
@@ -66,26 +67,13 @@
           array_push($output, 'G-C');
       }
     }
+    $output = implode(', ', $output);
     return $output;
 
   }
 //==================Redirecting after Success: =================================
-  // function dna_result_display() {
-  //     $answer = $_SESSION['result'];
-  //     return foreach($answer as $nucleotide) {
-  //       '<li>' . $nucleotide . '</li>'
-  //     };
 
   function dna_result_display() {
-      $answer = implode('<hr>', $_SESSION['result']);
-      // print_r($answer);
-      // exit;
+      $answer = $_SESSION['result'];
       return '<h1>' . $answer .  '</h1>';
-
-
-
-
-
-
-
   }

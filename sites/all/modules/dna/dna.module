@@ -1,0 +1,91 @@
+<?php
+
+  function dna_menu() {
+      $items['dna'] = array(
+          'title' => 'DNA: Double Helix Builder',
+          'page callback' => 'drupal_get_form',
+          'page arguments' => array('dna_form'),
+          'access callback' => TRUE,
+          'type' => MENU_NORMAL_ITEM,
+      );
+      $items['dna_results'] = array(
+          'title' => 'Sequencing is Done!',
+          'page callback' => 'dna_result_display',
+          'access callback' => TRUE,
+          'type' => MENU_CALLBACK,
+      );
+      return $items;
+  }
+
+  function dna_form() {
+
+      $form['input'] = array(
+          '#title' => 'Input Your side of the DNA Double Helix:',
+          '#type' => 'textfield',
+          '#description' => t("Short needle position"),
+          '#element_validate' => array('element_validate_atcg'),
+          '#required' => TRUE,
+      );
+      $form['submit'] = array(
+          '#type' => 'submit',
+          '#value' => 'Sequence',
+      );
+
+      return $form;
+  }
+//=====================Element Validations: ====================================
+
+  function element_validate_atcg($element) {
+    $acceptable_letter = array('a', 't', 'c', 'g', 'A', 'T', 'C', 'G', ',', ' ');
+    $user_input_value = str_split($element['#value']);
+    foreach($user_input_value as $letter) {
+      if(!in_array($letter, $acceptable_letter)) {
+        form_error($element, t('DNA has only 4 acceptable nucleotides: A, T, C, and G.'));
+      }
+    }
+  }
+
+//====================Calculation: =============================================
+  function dna_form_submit($form, &$form_state) {
+      $input = str_split(strtoupper($form_state['values']['input']));
+      $result = generate_other_half($input);
+      $_SESSION['result'] = $result;
+      $form_state['redirect'] = 'dna_results';
+  }
+
+  function generate_other_half($input) {
+    $output = array();
+    foreach($input as $letter) {
+      if($letter == 'A') {
+        array_push($output, 'A-T');
+      }elseif($letter == 'T') {
+        array_push($output, 'T-A');
+      }elseif($letter == 'C') {
+          array_push($output, 'C-G');
+      }elseif($letter == 'G') {
+          array_push($output, 'G-C');
+      }
+    }
+    return $output;
+
+  }
+//==================Redirecting after Success: =================================
+  // function dna_result_display() {
+  //     $answer = $_SESSION['result'];
+  //     return foreach($answer as $nucleotide) {
+  //       '<li>' . $nucleotide . '</li>'
+  //     };
+
+  function dna_result_display() {
+      $answer = implode('<hr>', $_SESSION['result']);
+      // print_r($answer);
+      // exit;
+      return '<h1>' . $answer .  '</h1>';
+
+
+
+
+
+
+
+  }

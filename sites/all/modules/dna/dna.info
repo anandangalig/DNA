@@ -1,0 +1,7 @@
+name  = DNA
+description = Generates the other half of the double helix DNA structure based on user input.
+package = Independent Project
+core = 7.x
+files[] = dna.module
+files[] = dna.test
+dependencies[] = simpletest

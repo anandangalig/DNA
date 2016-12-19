@@ -22,7 +22,7 @@
       $form['input'] = array(
           '#title' => 'Input Your side of the DNA Double Helix:',
           '#type' => 'textfield',
-          '#description' => t("Short needle position"),
+          '#description' => t("Nucleotides can be: A, T, C, G"),
           '#element_validate' => array('element_validate_atcg'),
           '#required' => TRUE,
       );

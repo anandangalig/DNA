@@ -157,7 +157,7 @@
       <div id="sidebar" class="column sidebar floatl width30"><div class="section">
         <?php print render($page['sidebar']); ?>
       </div></div> <!-- /.section, /#sidebar -->
-    
+
       <div class="help-wrapper displayinb width68 floatr">
         <?php print render($page['help']); ?>
       </div>
@@ -167,7 +167,7 @@
         </div>
       <?php endif; ?>
       <div id="content" class="column displayinb width68 floatr"><div class="section">
-        
+
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <?php if ($title): ?>
@@ -199,7 +199,7 @@
         </div>
       <?php endif; ?>
       <div id="content" class="column displayinb width100 floatr"><div class="section">
-        
+
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <?php if ($title): ?>
@@ -221,7 +221,7 @@
 
       </div></div> <!-- /.section, /#content -->
     <?php endif; ?>
-      
+
   </div></div> <!-- /#main, /#main-wrapper -->
 
 </div></div> <!-- /#page, /#page-wrapper -->

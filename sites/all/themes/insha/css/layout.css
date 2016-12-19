@@ -87,12 +87,12 @@ ul.menu {
 }
 
 a {
-  color: #0fbe7c;
+  color: #ED6F45;
   text-decoration: none;
 }
 
 body a.active {
-  color: #0fbe7c;
+  color: #ED6F45;
   font-weight: bold;
 }
 
@@ -117,7 +117,7 @@ a:hover {
 }
 
 #footer-wrapper a:hover {
-  color: #0fbe7c !important;
+  color: #ED6F45 !important;
 }
 
 #footer-wrapper {
@@ -205,7 +205,7 @@ button,
   -webkit-appearance: none !important;
   appearance: none !important;
   cursor: pointer;
-  background-color: #0fbe7c;
+  background-color: #ED6F45;
   border: none;
   margin-right: 10px;
   -webkit-border-radius: 3px;
@@ -584,7 +584,7 @@ input[type="radio"]:checked + label:after {
 
 .field-type-taxonomy-term-reference .field-items .field-item:after {
   content: ",";
-  color: #0fbe7c;
+  color: #ED6F45;
 }
 
 .field-type-taxonomy-term-reference .field-items .field-item:last-child:after {
@@ -788,7 +788,7 @@ ul.primary li a {
 }
 
 .navigation ul.links li.active a {
-  color: #0fbe7c;
+  color: #ED6F45;
   font-weight: bold;
 }
 
@@ -821,7 +821,7 @@ ul.primary li a {
 .icon-comment,
 .icon-comment-1 {
   float: left;
-  color: #0fbe7c;
+  color: #ED6F45;
   margin-top: 0.15em;
 }
 
@@ -1035,7 +1035,7 @@ ul.tabs {
 #block-user-login h2:after,
 #footer-wrapper h2:after,
 #footer-wrapper h3:after {
-  border-bottom: 3px solid #0fbe7c;
+  border-bottom: 3px solid #ED6F45;
   content: " ";
   display: inline-block;
   width: 3em;

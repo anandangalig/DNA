@@ -17,6 +17,8 @@ _This web application can take user inputted one half of a DNA sequence and gene
   * _Clone the project directory from https://github.com/anandangalig/DNA.git_
 
   * _Initiate MAMP in the highest level of the cloned directory_
+  
+  * _Use 'dna' as username and password for all database and Drupal site set-up purposes_
 
   * _Open PHPMyAdmin, create a new database, and import the latest zipped .sql file from the db-backup folder_
 

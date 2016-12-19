@@ -1,5 +1,7 @@
 <?php
-  class DNATestCase extends DrupalUnitTestCase
+//========================UNIT TESTING====================================
+
+  class DNAUnitTests extends DrupalUnitTestCase
   {
     public static function getInfo()
     {
@@ -50,53 +52,44 @@
      }
   }
 
-//   class BakeryUserTests extends DrupalWebTestCase {
-//
-//     public static function getInfo() {
-//         return array(
-//             'name' => 'DNA Functional Test',
-//             'description' => 'Front end functional test for custom module DNA.',
-//             'group' => 'Independent Project Tests',
-//         );
-//     }
-//
-//     public function setUp() {
-//         parent::setUp(array('dna')); //this enables the created module
-//         $user = $this->drupalCreateAuthenticatedUser();//these 3 added later, and is partly arranging the environment for the testPageTest()
-//         $this->drupalLogin($user);
-//         $this->createTestingPage();
-//     }
-//
-//
-//     public function testPageTest() {
-//       $this->drupalGet('node/1'); //alias can work too
-//       $this->assertText('1, 2, 3!', 'The text on the page is correct.');
-//     }
-//
-//
-// // ============below functions can co-exist since they are creating separate environments that are used for different test functions.
-//
-//     public function drupalCreateAuthenticatedUser(array $permissions = array()) {
-//         $roles = user_roles(); //grabs all user roles
-//         $index = array_search('authenticated', $roles);//finds the index of suer role - authenticated
-//         $user = $this->drupalCreateUser($permissions);//must be built in function
-//         $user->roles[$index] = 'authenticated'; //this sets the role of created user to authenticated
-//         return user_save($user); //saves the user and retruns it
-//     }
-//     public function createTestingPage() {
-//         //$info = the information needed to create the basic page at the url `pagetest`.
-//         $info = array();
-//         $info['title'] = "Testing!";
-//         $info["body[und][0][value]"] = "1, 2, 3!";
-//
-//         //save the new page
-//         $this->drupalPost('node/add/page', $info, t('Save'));
-//
-//         //set new page to the correct path. We know this will be node/1 because we are starting from scratch.
-//         $path['source'] = 'node/1';
-//         $path['alias'] = 'pagetest';
-//         path_save($path);
-//     }
-//
-//
-// }
+//========================FUNCTIONAL TESTING====================================
+
+  class DNAFunctionalTests extends DrupalWebTestCase {
+
+    public static function getInfo() {
+        return array(
+            'name' => 'DNA Functional Test',
+            'description' => 'Front end functional test for custom module DNA.',
+            'group' => 'Independent Project Tests',
+        );
+    }
+
+    public function setUp() {
+        parent::setUp(array('dna')); //this enables the created module
+        // $this->createTestingPage($input);
+    }
+
+
+    public function createTestingPage($input) {
+        //$info = the information needed to create the basic page at the url `pagetest`.
+        $info = array();
+        $info['input'] = $input;//hard coded input - changed it to a parameter, for different tests needed different inputs. 
+        $this->drupalPost('/dna', $info, t('Sequence'));//going to the URL, input above, trigger button Sequence.
+    }
+
+    public function testResultsSuccessPageTest() {
+      $this->createTestingPage('a,t,c,g');
+      $this->drupalGet('/dna_results'); //alias can work too
+      $this->assertText('A-T, T-A, C-G, G-C', 'The text on the page is correct.');
+    }
+    public function testNoInputErrorPageTest() {
+      $this->createTestingPage('');
+      $this->assertText('Input Your side of the DNA Double Helix: field is required.', 'Element Validation: Input Required is working properly.');
+    }
+    public function testValidationErrorPageTest() {
+      $this->createTestingPage('a,t,c,L');
+      // $this->drupalGet('/dna'); //did not need it since the function routes to results page itself.
+      $this->assertText('DNA has only 4 acceptable nucleotides: A, T, C, and G.', 'Element Validation for 4 correct letters is working properly.');
+    }
+
+  }

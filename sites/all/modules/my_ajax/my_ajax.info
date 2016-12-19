@@ -1,0 +1,5 @@
+name = My Ajax Node Loader
+description = Display More Information about Animals with Ajax.
+package = Independent Project
+core = 7.x
+files[] = my_ajax.module

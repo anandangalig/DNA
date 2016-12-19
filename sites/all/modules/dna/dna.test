@@ -73,13 +73,12 @@
     public function createTestingPage($input) {
         //$info = the information needed to create the basic page at the url `pagetest`.
         $info = array();
-        $info['input'] = $input;//hard coded input - changed it to a parameter, for different tests needed different inputs. 
+        $info['input'] = $input;//hard coded input - changed it to a parameter, for different tests needed different inputs.
         $this->drupalPost('/dna', $info, t('Sequence'));//going to the URL, input above, trigger button Sequence.
     }
 
     public function testResultsSuccessPageTest() {
       $this->createTestingPage('a,t,c,g');
-      $this->drupalGet('/dna_results'); //alias can work too
       $this->assertText('A-T, T-A, C-G, G-C', 'The text on the page is correct.');
     }
     public function testNoInputErrorPageTest() {

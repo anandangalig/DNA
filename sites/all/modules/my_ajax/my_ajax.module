@@ -1,0 +1,29 @@
+<?php
+function my_ajax_menu() {
+    $items['path-to-ajax/%/%'] = array(
+            'access arguments' => array('access content'), //So 'access content' is the machine name for a permission and so in this case the callback is only called if the current user has that permission. May be available for all?
+            'page callback' => 'my_ajax_callback',
+            'page arguments' => array(1,2), //the two % (1st checks if JS, therefore AJAX is available; second is the node ID for the callback function to use to grab the data), respectively being passed in
+            'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+function my_ajax_callback($js, $node_id) {
+  $node = node_load($node_id); //pulling the node object using the ID passed in from url
+
+  if($js == 'nojs') {
+    drupal_goto('node/' . $node->nid); //Graceful Degradation
+  }
+  $build = node_view($node); //Generates a giant array based on the given node
+  $html = render($build); //rendering to html
+
+  $commands = array(); //AJAX commands collected
+  $commands[] = ajax_command_html('#ajax-wrapper', $html); //the target ID from the basic page ajax wrapper (container); and the rendered html code from above.
+  print ajax_render($commands);//AJAX commands executed (Renders a commands array into JSON.)
+  exit;  // Exit so Drupal doesn't have a chance to build a whole page.
+}
+// echo '<pre>';
+// print_r($commands);
+// echo '</pre>';
+// exit;

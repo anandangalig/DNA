@@ -6,7 +6,7 @@
           'page callback' => 'drupal_get_form',
           'page arguments' => array('dna_form'),
           'access callback' => TRUE,
-          'type' => MENU_NORMAL_ITEM,
+          'type' => MENU_CALLBACK,
       );
       $items['dna_results'] = array(
           'title' => 'Sequencing is Done!',
@@ -76,11 +76,4 @@
   function dna_result_display() {
       $answer = $_SESSION['result'];
       return $answer;
-
-//============It worked to print nicely, but it's breaking the tests!=================
-      // $printed_link = '';
-      // foreach($answer as $link) {
-      //   $printed_link .=  $link .  '<br>';
-      // }
-      // return $printed_link;
   }

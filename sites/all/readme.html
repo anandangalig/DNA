@@ -1,0 +1,72 @@
+<h2>DNA Sequence Builder: Independent Project on Drupal</h2>
+<p>A basic app practicing Unit Testing, Functional Testing, and AJAX calls Drupal 7. 12/16/2016</p>
+
+ <p>Developed By Anand Angalig</p>
+
+
+<h2>Description:</h2>
+
+<p>This web application can take user inputted one half of a DNA sequence and generate the other half to make a full one. It will correctly match A-T, C-G, and vice versa. The second part of this page will demonstrate AJAX calls to existing content type and display data without going to a different page.</p>
+
+<img src="http://www.livescience.com/images/i/000/068/518/original/dna-strand.jpeg?interpolation=lanczos-none&downsize=<li>:1000">
+
+<h2>Setup/Installation Requirements:</h2>
+
+<li>Install and initiate MAMP or similar solution stack of your preference if your local machine does not have them already</li>
+
+<li>Clone the project directory from https://github.com/anandangalig/DNA.git</li>
+
+<li>Initiate MAMP in the highest level of the cloned directory</li>
+
+<li>Use 'dna' as username and password for all database and Drupal site set-up purposes</li>
+
+<li>Open PHPMyAdmin, create a new database, and import the latest zipped .sql file from the db-backup folder</li>
+
+<li>Go to localhost:8888 in your favorite browser to use the application</li>
+
+<h2>To run the tests:
+  <li>Make sure Testing and DNA modules are enabled on the Module tab of the Admin menu</li>
+  <li>Go to Configuration tab, click on Testing under Development panel</li>
+  <li>Go to Configuration tab, click on Testing under Development panel</li>
+  <li>Scroll down to 'Independent Project Tests' section and check mark it</li>
+  <li>Click Run tests</li>
+</h2>
+
+
+<h2>Specs:</h2>
+<li>Input: a</li>
+<li>Output: A-T</li>
+
+<li>Input: a,c</li>
+<li>Output: A-T, C-G</li>
+
+<li>Input: a,t,c,G</li>
+<li>Output: A-T, T-C, C-G, G-C</li>
+
+<li>Input: a c g</li>
+<li>Output: A-T, C-G, G-C</li>
+
+<li>Input: k</li>
+<li>Output: Error message: "DNA has only 4 acceptable nucleotides: A, T, C, and G."</li>
+
+
+
+<h2>Known Bugs:</h2>
+<p>No bugs known. If found, please bring it to my attention via e-mail.<p>
+
+
+<h2>Support and Contact Details:</h2>
+<p>Please feel free to contact me at anandangalig@gmail.com<p>
+
+<h2>Technologies Used:</h2>
+<li>Drupal</li>
+<li>PHP</li>
+<li>AJAX</li>
+<li>SimpleTest</li>
+
+
+<h2>License:</h2>
+
+This game is licensed under the MIT License agreement.
+
+Copyright (c) 2016 <p>Anand Angalig<p>

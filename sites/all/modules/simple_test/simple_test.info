@@ -1,0 +1,5 @@
+name = Simple Tests: Functional and Unit
+description = Eliminates unnecessary tests and displays only custom ones.
+package = Independent Project
+core = 7.x
+files[] = simple_registration.module

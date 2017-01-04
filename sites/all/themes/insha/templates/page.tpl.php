@@ -227,6 +227,7 @@
 </div></div> <!-- /#page, /#page-wrapper -->
 <div id="footer-wrapper">
   <div class="section">
+    <p>Developed by Anand Angalig | 2016</p>
 
     <?php if ($page['footer_firstcolumn'] || $page['footer_secondcolumn'] || $page['footer_thirdcolumn'] || $page['footer_fourthcolumn']): ?>
       <div id="footer-columns" class="clearfix width100">

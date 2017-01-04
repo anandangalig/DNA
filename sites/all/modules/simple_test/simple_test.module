@@ -2,19 +2,9 @@
     function simple_test_form_alter(&$form, &$form_state, $form_id) {
 
       if($form_id == 'simpletest_test_form') {
-        $form['tests']['table']['Independent Project Tests']['#collapsed'] = 0;
-        echo "<pre>";
-        print_r($form['tests']['table']['Independent Project Tests']);
-        echo "</pre>";
-        // foreach($form['tests']['table'] as $test) {
-        //   echo "<pre>";
-        //   print_r($test);
-        //   echo "</pre>";
-        //   if($test['DNAFunctionalTests']) {
-        //     $test['#collapsed'] = 0;
-        //   }
-        // }
+        // echo "<pre>";
+        // print_r($form['tests']);
+        // echo "</pre>";
       }
-
 
     }

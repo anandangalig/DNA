@@ -3,3 +3,4 @@ description = Eliminates unnecessary tests and displays only custom ones.
 package = Independent Project
 core = 7.x
 files[] = simple_registration.module
+scripts[] = simple_test.js

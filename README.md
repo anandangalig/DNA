@@ -7,7 +7,7 @@
 
 ## Description
 
-_This web application can take user inputted one half of a DNA sequence and generate the other half to make a full one. It will correctly match A-T, C-G, and vice versa. The second part of this page will demonstrate AJAX calls to existing content type and display data without going to a different page._
+_This web application takes user inputted sequence of a DNA strand and generates the complementary strand sequence to make a double-stranded DNA. It correctly pairs nucleotides A-T, C-G, and vice versa. The second part of this page demonstrates AJAX calls to an existing content type and displays data without going to a different page._
 
 ![Alt text](http://www.livescience.com/images/i/000/068/518/original/dna-strand.jpeg?interpolation=lanczos-none&downsize=*:1000")
 
@@ -26,7 +26,6 @@ _This web application can take user inputted one half of a DNA sequence and gene
 
   * _To run the tests:_
     * _Make sure Testing and DNA modules are enabled on the Module tab of the Admin menu_
-    * _Go to Configuration tab, click on Testing under Development panel_
     * _Go to Configuration tab, click on Testing under Development panel_
     * _Scroll down to 'Independent Project Tests' section and check mark it_
     * _Click Run tests_
